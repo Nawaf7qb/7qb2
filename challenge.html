@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أسئلة نافس - المستويات</title>
+    <title>أسئلة نافس - التحدي</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -16,17 +16,23 @@
         <h1>أسئلة نافس</h1>
         <nav>
             <a href="index.html" class="nav-link">الصفحة الرئيسية</a>
+            <button id="refresh-question" class="nav-link">تجديد السؤال</button>
         </nav>
     </header>
 
     <main>
-        <div class="levels-container">
-            <h2 id="levels-title">اختر المستوى:</h2>
-            <div class="level-buttons">
-                <a href="challenge.html?subject=math&level=1" class="level-btn">المستوى 1</a>
-                <a href="challenge.html?subject=math&level=2" class="level-btn">المستوى 2</a>
-                <a href="challenge.html?subject=math&level=3" class="level-btn">المستوى 3</a>
+        <div class="question-container">
+            <h2 id="question-text"></h2>
+            <img src="" alt="صورة توضيحية" class="question-image">
+            <div class="buttons-container">
+                <button id="record-answer">تسجيل الإجابة</button>
+                <button id="stop-record" style="display: none;">إيقاف التسجيل</button>
+                <button id="play-audio" style="display: none;">سمع صوتك</button>
+                <button id="repeat-answer" style="display: none;">إعادة نطق الإجابة</button>
+                <button id="show-answer" style="display: none;">عرض الإجابة الصحيحة</button>
             </div>
+            <p id="result-message"></p>
+            <p id="feedback"></p>
         </div>
     </main>
 
@@ -38,17 +44,11 @@
             <a href="https://www.facebook.com/AQS.School" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/amjadgurtoba/" target="_blank"><i class="fab fa-instagram"></i></a>
 					    <a href="https://www.youtube.com/@aqs_school" target="_blank"><i class="fab fa-youtube"></i></a>
-
         </div>
         <p>صمم الموقع بواسطة: نواف بندر الحقباني</p>
         <p>مدرسة إمجاد قرطبة</p>
     </footer>
 
-    <script>
-        // تحديد المادة من الـ URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const subject = urlParams.get('subject');
-        document.getElementById('levels-title').innerText = `اختر المستوى - ${subject}`;
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
