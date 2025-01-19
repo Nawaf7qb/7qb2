@@ -23,9 +23,7 @@
         <div class="levels-container">
             <h2 id="levels-title">اختر المستوى:</h2>
             <div class="level-buttons">
-                <a href="challenge.html?subject=math&level=1" class="level-btn">المستوى 1</a>
-                <a href="challenge.html?subject=math&level=2" class="level-btn">المستوى 2</a>
-                <a href="challenge.html?subject=math&level=3" class="level-btn">المستوى 3</a>
+                <!-- المستويات سيتم إضافتها هنا عبر JavaScript -->
             </div>
         </div>
     </main>
@@ -37,8 +35,7 @@
             <a href="https://www.tiktok.com/@amjadgurtoba" target="_blank"><i class="fab fa-tiktok"></i></a>
             <a href="https://www.facebook.com/AQS.School" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/amjadgurtoba/" target="_blank"><i class="fab fa-instagram"></i></a>
-					    <a href="https://www.youtube.com/@aqs_school" target="_blank"><i class="fab fa-youtube"></i></a>
-
+            <a href="https://www.youtube.com/@aqs_school" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
         <p>صمم الموقع بواسطة: نواف بندر الحقباني</p>
         <p>مدرسة إمجاد قرطبة</p>
@@ -49,6 +46,24 @@
         const urlParams = new URLSearchParams(window.location.search);
         const subject = urlParams.get('subject');
         document.getElementById('levels-title').innerText = `اختر المستوى - ${subject}`;
+
+        // تحديد المستويات بناءً على المادة
+        const levelButtons = document.querySelector('.level-buttons');
+        levelButtons.innerHTML = ''; // مسح المستويات الحالية
+
+        const levels = [
+            { level: 1, label: "المستوى 1" },
+            { level: 2, label: "المستوى 2" },
+            { level: 3, label: "المستوى 3" }
+        ];
+
+        levels.forEach(level => {
+            const levelLink = document.createElement('a');
+            levelLink.href = `challenge.html?subject=${subject}&level=${level.level}`;
+            levelLink.className = 'level-btn';
+            levelLink.innerText = level.label;
+            levelButtons.appendChild(levelLink);
+        });
     </script>
 </body>
 </html>
